@@ -238,3 +238,4 @@ npm run build
 | Backend API Health | HTTP | `http://127.0.0.1:5001/api/health` | Server status probe |
 | Pricing API | HTTP POST | `http://127.0.0.1:5001/api/pricing/calculate` | Calculate line items & GST in INR |
 | Pricing Config | HTTP GET | `http://127.0.0.1:5001/api/pricing/config` | Sizes, frame finishes, base prices |
+

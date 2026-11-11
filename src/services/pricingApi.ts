@@ -1,14 +1,17 @@
 import { TentConfiguration, PricingBreakdown } from '../types/configurator';
 import { calculateConfigurationPricing } from './pricingCalculation';
 
-const API_BASE_URL = 'http://127.0.0.1:5001';
+// In production, use environment variable or relative '/api' endpoint for same-origin serverless deployment.
+// In development, Vite dev proxy routes '/api' to local Express server (port 5001).
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');
 
 export async function fetchPricingCalculation(config: TentConfiguration): Promise<PricingBreakdown> {
   try {
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 2000); // 2 second timeout
+    const timeoutId = setTimeout(() => controller.abort(), 3000); // 3 second timeout
 
-    const response = await fetch(`${API_BASE_URL}/api/pricing/calculate`, {
+    const endpoint = `${API_BASE_URL}/api/pricing/calculate`;
+    const response = await fetch(endpoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

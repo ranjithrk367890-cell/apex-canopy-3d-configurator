@@ -2,7 +2,7 @@ import assert from 'node:assert';
 
 console.log('--- RUNNING PRICING API & INR CALCULATION TESTS ---');
 
-const BASE_URL = 'http://127.0.0.1:5001';
+const BASE_URL = process.env.TEST_API_URL || 'http://127.0.0.1:5001';
 
 async function runTests() {
   // Test 1: Health Check

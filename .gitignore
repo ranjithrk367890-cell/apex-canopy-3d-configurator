@@ -10,6 +10,20 @@ dist/
 dist-ssr/
 *.local
 
+# Environment variables & secrets (Never commit to Git)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+*.key
+*.cert
+*.crt
+
+# Vercel deployment cache
+.vercel
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
